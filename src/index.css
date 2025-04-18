@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "baloo_paaji_2regular";
+  font-family: "baloo_paaji_2regular",  sans-serif;
 }
 
 @font-face {
