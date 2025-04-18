@@ -103,7 +103,7 @@ function App() {
                                     <div className="flex flex-row justify-between w-full p-2">
                                         <div className="flex justify-between gap-x-2 ml-3">
                                             <img src={doneIco} className="hover:cursor-pointer w-6 h-6 border-2 rounded-full border-green-700" alt="completed task"/>
-                                            <p className={"text-[19px] text-green-700"}>{`${i.id}, ${i.title}`}</p>
+                                            <p className={"text-[19px] text-green-700"}>{i.title}</p>
                                         </div>
                                         <div className="flex justify-between gap-7">
                                             <img className="w-6" onClick={()=> toggleComplete(i.id)} src={revertIco} alt="revert" />
