@@ -71,12 +71,12 @@ function App() {
                             
                             {todos.filter(i => !i.completed).map((i) => (
                                 <li key={i.id}>
-                                    <div className="flex flex-row justify-between w-full p-2">
+                                    <div className="flex flex-row justify-between">
                                         <div className="flex justify-between gap-x-2">
                                             <input onClick={()=>toggleComplete(i.id)} type="button" className="w-6 h-6 ml-2 border border-solid rounded-full hover:cursor-pointer bg-white"/>
                                             <p className={"text-[19px]"}>{i.title}</p>
                                         </div>
-                                        <img src={DeleteSvg} onClick={()=>removeItem(i.id)} className="hover:cursor-pointer" alt="delete button"/>
+                                        <img src={DeleteSvg} onClick={()=>removeItem(i.id)} className="hover:cursor-pointer w-6 h-6" alt="delete button"/>
                                     </div>
                                 </li>
                             ))} 
@@ -87,7 +87,7 @@ function App() {
 
             <div className="w-[450px] h-[50px] flex relative border-2 border-gray-500 rounded-r-sm mb-[20px]">
                 <img src={plusIco} className="w-4 absolute z-1 bottom-4 left-3"/>
-                <input onChange={(e)=> setInput(e.target.value)} type="text" className="w-full mx-10 mr-[100px] focus:outline-hidden"/>
+                <input maxLength={40} onChange={(e)=> setInput(e.target.value)} value={input} type="text" className="w-full mx-10 mr-[100px] focus:outline-hidden"/>
                 <button onClick={addNewTodo} className="text-white bg-indigo-900 w-[100px] h-full absolute right-0 p-[10px] items-center justify-center flex rounded-r-xs">
                     Add new
                 </button>
@@ -100,14 +100,16 @@ function App() {
                         
                             {todos.filter(i => i.completed).map((i) => (
                                 <li key={i.id}>
-                                    <div className="flex flex-row justify-between w-full p-2">
-                                        <div className="flex justify-between gap-x-2 ml-3">
-                                            <img src={doneIco} className="hover:cursor-pointer w-6 h-6 border-2 rounded-full border-green-700" alt="completed task"/>
+                                    <div className="flex flex-row justify-between">
+                                        <div className="flex justify-between gap-x-2">
+                                            <div className="flex items-center justify-center">
+                                                <img src={doneIco} className="ml-2 hover:cursor-pointer w-6 h-6 border-2 rounded-full border-green-700" alt="completed task"/>
+                                            </div>
                                             <p className={"text-[19px] text-green-700"}>{i.title}</p>
                                         </div>
                                         <div className="flex justify-between gap-7">
-                                            <img className="w-6" onClick={()=> toggleComplete(i.id)} src={revertIco} alt="revert" />
-                                            <img src={DeleteSvg} onClick={()=> removeItem(i.id)} className="hover:cursor-pointer" alt="delete button"/>
+                                            <img className="h-6 w-6" onClick={()=> toggleComplete(i.id)} src={revertIco} alt="revert" />
+                                            <img src={DeleteSvg} onClick={()=> removeItem(i.id)} className="hover:cursor-pointer w-6 h-6" alt="delete button"/>
                                         </div>
                                         
                                     </div>
