@@ -6,9 +6,15 @@ import plusIco from './assets/plus.svg'
 import doneIco from './assets/tick-green.svg'
 import revertIco from './assets/revert.svg'
 
+interface Todo {
+    id: string,
+    title: string,
+    completed: boolean
+}
+
 function App() {
-    const [input, setInput] = useState('')
-    const [todos, setTodo] = useState([])
+    const [input, setInput] = useState<string>('')
+    const [todos, setTodo] = useState<Todo[]>([])
 
     useEffect(()=> {
         const storedTodos = localStorage.getItem('todos')
@@ -31,7 +37,7 @@ function App() {
 
 
     const addNewTodo = () =>{
-        let newItems = {id: uuidv4(), title:input, completed:false}
+        const newItems = {id: uuidv4(), title:input, completed:false}
 
         if (input){
             setTodo((prev) => [...prev, newItems])
@@ -39,11 +45,11 @@ function App() {
         }
     }
 
-    const removeItem = (id) => {
+    const removeItem = (id:string) => {
         setTodo(prev => prev.filter(i => i.id !== id))
     }
     
-    const toggleComplete = (id) => {
+    const toggleComplete = (id:string) => {
         setTodo(prev => 
             prev.map(i => 
                 i.id === id ? { ...i, completed: !i.completed } : i
