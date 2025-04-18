@@ -74,7 +74,7 @@ function App() {
                                     <div className="flex flex-row justify-between w-full p-2">
                                         <div className="flex justify-between gap-x-2">
                                             <input onClick={()=>toggleComplete(i.id)} type="button" className="w-6 h-6 ml-2 border border-solid rounded-full hover:cursor-pointer bg-white"/>
-                                            <p className={"text-[19px]"}>{`${i.id}, ${i.title}`}</p>
+                                            <p className={"text-[19px]"}>{i.title}</p>
                                         </div>
                                         <img src={DeleteSvg} onClick={()=>removeItem(i.id)} className="hover:cursor-pointer" alt="delete button"/>
                                     </div>
